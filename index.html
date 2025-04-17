@@ -404,7 +404,7 @@
       </div>
 
       <!-- Migraine -->
-      <div class="col-md-4 services ftco-animate mt-4">
+    <!--   <div class="col-md-4 services ftco-animate mt-4">
         <div class="d-block d-flex">
           <div class="icon d-flex justify-content-center align-items-center">
             <i class="fa-solid fa-head-side-virus fa-2x"></i>
@@ -414,7 +414,7 @@
             <p>Drug-free migraine therapies that target root causes and promote relaxation.</p>
            </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Ear Balance -->
       <div class="col-md-4 services ftco-animate mt-4">
@@ -518,7 +518,257 @@
 }
 </style>
 
-		
+  		<style>
+
+    .map-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .map-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bolder;
+      margin-top: 20px;
+      margin-bottom: 1cm;
+      margin-top: 1cm;
+    }
+
+    /* Smaller heading on larger (desktop) screens */
+    @media (min-width: 768px) {
+      h2 {
+        font-size: 28px;
+      }
+     .map-container {
+    width: 1200px;        /* Adjust width */
+    height: 500px;       /* Fixed height for rectangle look */
+    padding-bottom: 0;   /* Remove the aspect ratio padding */
+    margin: 0 auto 20px; /* Center the map */
+  }
+
+  .map-container iframe {
+    height: 100%;        /* Fill the fixed container height */
+  }
+    }
+  </style>
+
+  <h2>Location</h2>
+  <div class="map-container">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.123575031645!2d76.6738558!3d10.006650099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07e91bc4e7c819%3A0xb2b1535f85ae3d91!2sRajaguru%20Wellness%20Yoga%20And%20CHIROPRACTIC%20CENTRE!5e0!3m2!1sen!2sin!4v1744861664722!5m2!1sen!2sin" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+  <style>
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-top: 32px;
+
+    }
+
+    @media (min-width: 768px) {
+      h2 {
+        font-size: 28px;
+
+      }
+    }
+
+    .video-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 16px;
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+
+    .video-carousel iframe {
+      flex: 0 0 90%;
+      max-width: 600px;
+      height: 315px;
+      scroll-snap-align: start;
+      border: none;
+      border-radius: 10px;
+    }
+  </style>
+
+  <h2>Reviews by Customers</h2>
+
+  <div class="video-carousel">
+    <!-- Video 1 -->
+    <iframe src="https://www.youtube.com/embed/kNR3UmrvhMU?si=C9pFaP32mJJI0t8N" allowfullscreen></iframe>
+
+    <!-- Video 2 -->
+    <iframe src="https://www.youtube.com/embed/sr2l9fi-x4U?si=4e_vIxi4ydtP3Df9" allowfullscreen></iframe>
+
+    <!-- Video 3 -->
+    <iframe src="https://www.youtube.com/embed/RjoofSCItKU?si=4xyRvxTd6MZqDzz9" allowfullscreen></iframe>
+  </div>
+ <style>
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Default for mobile view */
+      gap: 16px;
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    /* Desktop view - only showing 5 images */
+    @media (min-width: 768px) {
+      .image-grid {
+        grid-template-columns: repeat(5, 1fr); /* Show 5 images per row */
+      }
+
+      .image-grid img:nth-child(n+6) {  /* Hide all images starting from the 6th one */
+        display: none;
+      }
+    }
+
+    /* Extra large screen - wider grid and even larger images */
+    @media (min-width: 1024px) {
+      .image-grid {
+        grid-template-columns: repeat(5, 1fr); /* 5 images per row on larger screens */
+      }
+    }
+
+    /* Lightbox styles */
+    .lightbox {
+      display: none; /* Hidden by default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      object-fit: contain;
+    }
+
+    .lightbox:target {
+      display: flex; /* Show the lightbox when clicked */
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Show the 6th image in mobile view and hide it on desktop */
+    .mobile-visible {
+      display: block; /* Ensure the image is visible by default (mobile view) */
+    }
+
+    @media (min-width: 768px) {
+      .mobile-visible {
+        display: none; /* Hide the image on larger screens */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Image Gallery</h2>
+
+  <div class="image-grid">
+    <a href="#lightbox-1">
+      <img src="images/pic2.jpeg" alt="Image 2">
+    </a>
+    <a href="#lightbox-2">
+      <img src="images/pic3.jpeg" alt="Image 3">
+    </a>
+    <a href="#lightbox-3">
+      <img src="images/pic4.jpeg" alt="Image 4">
+    </a>
+    <a href="#lightbox-4">
+      <img src="images/pic5.jpeg" alt="Image 5">
+    </a>
+    <a href="#lightbox-5">
+      <img src="images/pic6.jpeg" alt="Image 6">
+    </a>
+    <a href="#lightbox-6" class="mobile-visible">
+      <img src="images/pic7.jpeg" alt="Image 7">
+    </a>
+  </div>
+
+  <!-- Lightbox for images -->
+  <div id="lightbox-1" class="lightbox">
+    <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+    <img src="images/pic2.jpeg" alt="Image 2">
+  </div>
+  <div id="lightbox-2" class="lightbox">
+    <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+    <img src="images/pic3.jpeg" alt="Image 3">
+  </div>
+  <div id="lightbox-3" class="lightbox">
+    <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+    <img src="images/pic4.jpeg" alt="Image 4">
+  </div>
+  <div id="lightbox-4" class="lightbox">
+    <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+    <img src="images/pic5.jpeg" alt="Image 5">
+  </div>
+  <div id="lightbox-5" class="lightbox">
+    <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+    <img src="images/pic6.jpeg" alt="Image 6">
+  </div>
+  <div id="lightbox-6" class="lightbox">
+    <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+    <img src="images/pic7.jpeg" alt="Image 7">
+  </div>
+
+</body>
+</html>
+<!-- <div id="lightbox-7" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/pic8.jpeg" alt="Image 8">
+</div>
+ -->
+
 		<!-- <section class="ftco-section ftco-no-pt ftco-no-pb">
 			<div class="container-fluid px-md-0">
 				<div class="row no-gutters">
