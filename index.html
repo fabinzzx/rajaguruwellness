@@ -28,6 +28,12 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+    <div id="poster">
+  <div class="poster-content">
+    <button class="close-btn" onclick="closePoster()">×</button>
+    <img src="images/poster1.jpg" alt="Welcome Poster">
+  </div>
+</div>
   	<div class="top py-3 bg-light">
     <div class="container-fluid">
         <div class="row">
@@ -164,7 +170,7 @@
     <!-- END nav -->
     <div class="hero-wrap">
 	    <div class="home-slider owl-carousel">
-	      <div class="slider-item" style="background-image:url(images/bg_1.jpg);">
+	      <div class="slider-item" style="background-image:url(images/scroll3.jpg);">
 	      	<div class="overlay"></div>
 	        <div class="container">
 	          <div class="row no-gutters slider-text align-items-center justify-content-end">
@@ -183,7 +189,7 @@
 	        </div>
 	      </div>
 
-	      <div class="slider-item" style="background-image:url(images/bg_2.jpg);">
+	      <div class="slider-item" style="background-image:url(images/scroll8.jpg);">
 	      	<div class="overlay"></div>
 	        <div class="container">
 	          <div class="row no-gutters slider-text align-items-center justify-content-end">
@@ -511,9 +517,17 @@
   </div>
 </section>
 <div class="google-review-container">
+  <!-- Desktop version -->
   <a href="https://www.google.com/search?q=rajaguru+wellness+yoga+and+chiropractic+centre+pothanicad&rlz=1C1ONGR_enIN1085IN1086#lrd=0x3b07e91bc4e7c819:0xb2b1535f85ae3d91,1,,,,"
      target="_blank"
-     class="google-review-btn">
+     class="google-review-btn desktop-review">
+    <span class="stars">★★★★★</span> View Google Reviews
+  </a>
+
+  <!-- Mobile version -->
+  <a href="https://www.google.com/search?sca_esv=e066bee1ea606397&rlz=1C1ONGR_enIN1085IN1086&sxsrf=AE3TifNDVr9SdQzKsuAdVAJ1whPK5zdxrQ:1750822854144&q=rajaguru+wellness+yoga+and+chiropractic+centre+pothanicad+reviews&uds=AOm0WdG8REoavmxau6W0vjPWuj5iGVTWLr6cUFqGLXh5WX4BH2Bum0zFAcw_aR7XmFHQ6zp3i0T5FIKNQac482l6aUGfy0ecTwRajSPyKX7jEKbKCWsJl2k2sjL-3t877clfvnnkExql1YP4zzN5HRD_niEWBH9x2DtRxXOet1uedLOcSEEjt3ZukS8ldaLi69e944CgTBVfsCQoFMmv_HyPsVgLS0arKJTm1vQZDyIfSLW-BwGAGAxICGFwo3W0WkMSxQx6mrd38K1rLEZZxBlunIw3tQ3R-EOB7nIbrCA8wEWK5uYJootYuoP9-sg7yTpzjeZRqpk_yl864_keBdfImbEUAVSITlLFP0vd--nWIsJYfjNGW84KuhB8rzmy4QZQEYge65B3JA47NqpM4-WQ7ZmOQrFgUK4aL-DIM9ALTk8HDCuDmZx7r4ZICb7yua_7L9CUjAUl&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E6I70ZOsqoEjIF_ipJOyfV4KO3ngynvu_pxKk7F9lg0bxSdKyhXgX-cjokf0XrWfXFtcKXA8wPE6HW1krRjnsiArXkfyH7r-pXFd3LZV-NHhojiqqrasN67so66HTGyLVDAaIlpb_wOt4wVxfDvrTUI3ptzZ&sa=X&ved=2ahUKEwjOuKSy04uOAxXoRmcHHRuUEnYQk8gLegQIHxAB&ictx=1&stq=1&cs=1&lei=xm9baM69COiNnesPm6jKsAc#ebo=2"
+     target="_blank"
+     class="google-review-btn mobile-review">
     <span class="stars">★★★★★</span> View Google Reviews
   </a>
 </div>
@@ -524,6 +538,7 @@
   margin: 30px 0;
 }
 
+/* Common button styling */
 .google-review-btn {
   display: inline-block;
   background-color: #4285f4; /* Google's Blue */
@@ -533,7 +548,7 @@
   border-radius: 30px;
   text-decoration: none;
   font-size: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -547,7 +562,27 @@
   margin-right: 8px;
   font-size: 18px;
 }
+
+/* Hide both by default (safety fallback) */
+.desktop-review, .mobile-review {
+  display: none;
+}
+
+/* Show desktop version above 768px */
+@media (min-width: 768px) {
+  .desktop-review {
+    display: inline-block;
+  }
+}
+
+/* Show mobile version below 768px */
+@media (max-width: 767px) {
+  .mobile-review {
+    display: inline-block;
+  }
+}
 </style>
+
 
   		<style>
 
@@ -639,7 +674,7 @@ h2 {
     }
   </style>
 
- <h2>Reviews by Customers</h2>
+ <h2>Reviews</h2>
 
   <div class="video-carousel">
     <!-- Video 1 -->
@@ -650,6 +685,7 @@ h2 {
 
     <!-- Video 3 -->
     <iframe id="player3" src="https://www.youtube.com/embed/RjoofSCItKU?enablejsapi=1" allowfullscreen></iframe>
+
   </div>
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>
@@ -685,138 +721,162 @@ h2 {
       margin-bottom: 16px;
     }
 
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Default for mobile view */
-      gap: 16px;
-      padding: 20px;
-      margin-bottom: 40px;
-    }
+  .image-grid {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 12px;
+  padding: 16px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
 
-    .image-grid img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 8px;
-      object-fit: cover;
-      cursor: pointer;
-    }
+.image-grid a {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  display: inline-block;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
 
-    /* Desktop view - only showing 5 images */
-    @media (min-width: 768px) {
-      .image-grid {
-        grid-template-columns: repeat(5, 1fr); /* Show 5 images per row */
-      }
+.image-grid img {
+  display: block;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+/* Lightbox overlay */
+.lightbox {
+  position: fixed;  /* Important to prevent it from pushing page content */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
 
-      .image-grid img:nth-child(n+6) {  /* Hide all images starting from the 6th one */
-        display: none;
-      }
-    }
+.lightbox:target {
+  display: flex;
+}
 
-    /* Extra large screen - wider grid and even larger images */
-    @media (min-width: 1024px) {
-      .image-grid {
-        grid-template-columns: repeat(5, 1fr); /* 5 images per row on larger screens */
-      }
-    }
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
 
-    /* Lightbox styles */
-    .lightbox {
-      display: none; /* Hidden by default */
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
+/* Close button */
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 36px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10001;
+}
 
-    .lightbox img {
-      max-width: 90%;
-      max-height: 80%;
-      object-fit: contain;
-    }
 
-    .lightbox:target {
-      display: flex; /* Show the lightbox when clicked */
-    }
+/* Optional: make it more compact for mobile */
+@media (max-width: 600px) {
+  .image-grid img {
+    height: 200px;
+  }
+}
 
-    .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      color: white;
-      font-size: 30px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    /* Show the 6th image in mobile view and hide it on desktop */
-    .mobile-visible {
-      display: block; /* Ensure the image is visible by default (mobile view) */
-    }
-
-    @media (min-width: 768px) {
-      .mobile-visible {
-        display: none; /* Hide the image on larger screens */
-      }
-    }
   </style>
 </head>
 <body>
+<h2>Image Gallery</h2>
 
-  <h2>Image Gallery</h2>
+<div class="image-grid">
+  <!-- Existing images -->
+  <a href="#lightbox-1"><img src="images/pic2.jpeg" alt="Image 2"></a>
+  <a href="#lightbox-2"><img src="images/pic3.jpeg" alt="Image 3"></a>
+  <a href="#lightbox-3"><img src="images/pic4.jpeg" alt="Image 4"></a>
+  <a href="#lightbox-4"><img src="images/pic5.jpeg" alt="Image 5"></a>
+  <a href="#lightbox-5"><img src="images/pic6.jpeg" alt="Image 6"></a>
+  <a href="#lightbox-6" class="mobile-visible"><img src="images/pic7.jpeg" alt="Image 7"></a>
 
-  <div class="image-grid">
-    <a href="#lightbox-1">
-      <img src="images/pic2.jpeg" alt="Image 2">
-    </a>
-    <a href="#lightbox-2">
-      <img src="images/pic3.jpeg" alt="Image 3">
-    </a>
-    <a href="#lightbox-3">
-      <img src="images/pic4.jpeg" alt="Image 4">
-    </a>
-    <a href="#lightbox-4">
-      <img src="images/pic5.jpeg" alt="Image 5">
-    </a>
-    <a href="#lightbox-5">
-      <img src="images/pic6.jpeg" alt="Image 6">
-    </a>
-    <a href="#lightbox-6" class="mobile-visible">
-      <img src="images/pic7.jpeg" alt="Image 7">
-    </a>
-    
-  </div>
+  <!-- New img01 to img08 -->
+  <a href="#lightbox-7"><img src="images/img01.jpg" alt="Image 01"></a>
+  <a href="#lightbox-8"><img src="images/img02.jpg" alt="Image 02"></a>
+  <a href="#lightbox-9"><img src="images/img03.jpg" alt="Image 03"></a>
+  <!-- <a href="#lightbox-10"><img src="images/img04.jpg" alt="Image 04"></a>
+  <a href="#lightbox-11"><img src="images/img05.jpg" alt="Image 05"></a>
+  <a href="#lightbox-12"><img src="images/img06.jpg" alt="Image 06"></a> -->
+  <a href="#lightbox-13"><img src="images/img07.jpg" alt="Image 07"></a>
+  <a href="#lightbox-14"><img src="images/img08.jpg" alt="Image 08"></a>
+</div>
 
-  <!-- Lightbox for images -->
-  <div id="lightbox-1" class="lightbox">
-    <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-    <img src="images/pic2.jpeg" alt="Image 2">
-  </div>
-  <div id="lightbox-2" class="lightbox">
-    <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-    <img src="images/pic3.jpeg" alt="Image 3">
-  </div>
-  <div id="lightbox-3" class="lightbox">
-    <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-    <img src="images/pic4.jpeg" alt="Image 4">
-  </div>
-  <div id="lightbox-4" class="lightbox">
-    <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-    <img src="images/pic5.jpeg" alt="Image 5">
-  </div>
-  <div id="lightbox-5" class="lightbox">
-    <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-    <img src="images/pic6.jpeg" alt="Image 6">
-  </div>
-  <div id="lightbox-6" class="lightbox">
-    <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-    <img src="images/pic7.jpeg" alt="Image 7">
-  </div>
+<!-- Lightboxes -->
+<div id="lightbox-1" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/pic2.jpeg" alt="Image 2">
+</div>
+<div id="lightbox-2" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/pic3.jpeg" alt="Image 3">
+</div>
+<div id="lightbox-3" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/pic4.jpeg" alt="Image 4">
+</div>
+<div id="lightbox-4" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/pic5.jpeg" alt="Image 5">
+</div>
+<div id="lightbox-5" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/pic6.jpeg" alt="Image 6">
+</div>
+<div id="lightbox-6" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/pic7.jpeg" alt="Image 7">
+</div>
+
+<!-- New lightboxes for img01 to img08 -->
+<div id="lightbox-7" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/img01.jpg" alt="Image 01">
+</div>
+<div id="lightbox-8" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/img02.jpg" alt="Image 02">
+</div>
+<div id="lightbox-9" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/img03.jpg" alt="Image 03">
+</div>
+<!-- <div id="lightbox-10" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/img04.jpg" alt="Image 04">
+</div>
+<div id="lightbox-11" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/img05.jpg" alt="Image 05">
+</div>
+<div id="lightbox-12" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/img06.jpg" alt="Image 06">
+</div> -->
+<div id="lightbox-13" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/img07.jpg" alt="Image 07">
+</div>
+<div id="lightbox-14" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/img08.jpg" alt="Image 08">
+</div>
 
 </body>
 </html>
@@ -1058,7 +1118,17 @@ h2 {
 </footer>
 
   
+<script>
+  function closePoster() {
+    document.getElementById("poster").style.display = "none";
+    document.body.classList.remove("modal-open");
+  }
 
+  window.onload = function() {
+    document.getElementById("poster").style.display = "flex";
+    document.body.classList.add("modal-open");
+  };
+</script>
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
