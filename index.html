@@ -28,12 +28,12 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <div id="poster">
+    <!-- <div id="poster">
   <div class="poster-content">
     <button class="close-btn" onclick="closePoster()">×</button>
     <img src="images/poster1.jpg" alt="Welcome Poster">
   </div>
-</div>
+</div> -->
   	<div class="top py-3 bg-light">
     <div class="container-fluid">
         <div class="row">
@@ -734,7 +734,7 @@ h2 {
       margin-bottom: 16px;
     }
 
-  .image-grid {
+.image-grid {
   display: flex;
   flex-direction: row;
   overflow-x: auto;
@@ -747,19 +747,22 @@ h2 {
 
 .image-grid a {
   flex: 0 0 auto;
+  width: 220px;              /* FIXED WIDTH */
+  height: 300px;             /* FIXED HEIGHT */
   scroll-snap-align: start;
-  display: inline-block;
+  display: block;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .image-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* CROPS nicely */
   display: block;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
 }
+
 /* Lightbox overlay */
 .lightbox {
   position: fixed;  /* Important to prevent it from pushing page content */
@@ -801,14 +804,18 @@ h2 {
 
 /* Optional: make it more compact for mobile */
 @media (max-width: 600px) {
-  .image-grid img {
-    height: 200px;
+  .image-grid a {
+    width: 180px;
+    height: 260px;
   }
 }
+
 
   </style>
 </head>
 <body>
+
+
 <h2>Image Gallery</h2>
 
 <div class="image-grid">
@@ -820,79 +827,137 @@ h2 {
   <a href="#lightbox-5"><img src="images/pic6.jpeg" alt="Image 6"></a>
   <a href="#lightbox-6" class="mobile-visible"><img src="images/pic7.jpeg" alt="Image 7"></a>
 
-  <!-- New img01 to img08 -->
+  <!-- img01 to img08 -->
   <a href="#lightbox-7"><img src="images/img01.jpg" alt="Image 01"></a>
   <a href="#lightbox-8"><img src="images/img02.jpg" alt="Image 02"></a>
   <a href="#lightbox-9"><img src="images/img03.jpg" alt="Image 03"></a>
-  <!-- <a href="#lightbox-10"><img src="images/img04.jpg" alt="Image 04"></a>
-  <a href="#lightbox-11"><img src="images/img05.jpg" alt="Image 05"></a>
-  <a href="#lightbox-12"><img src="images/img06.jpg" alt="Image 06"></a> -->
-  <a href="#lightbox-13"><img src="images/img07.jpg" alt="Image 07"></a>
-  <a href="#lightbox-14"><img src="images/img08.jpg" alt="Image 08"></a>
-</div>
+  <a href="#lightbox-10"><img src="images/img07.jpg" alt="Image 07"></a>
+  <a href="#lightbox-11"><img src="images/img08.jpg" alt="Image 08"></a>
 
-<!-- Lightboxes -->
+  <!-- NEW images -->
+  <a href="#lightbox-12"><img src="images/pic020.jpeg" alt="Image 09"></a>
+  <a href="#lightbox-13"><img src="images/pic021.jpeg" alt="Image 10"></a>
+  <a href="#lightbox-14"><img src="images/pic022.jpeg" alt="Image 11"></a>
+  <a href="#lightbox-15"><img src="images/pic023.jpeg" alt="Image 12"></a>
+</div>
 <div id="lightbox-1" class="lightbox">
   <span class="lightbox-close" onclick="window.location='#';">&times;</span>
   <img src="images/pic2.jpeg" alt="Image 2">
 </div>
+
 <div id="lightbox-2" class="lightbox">
   <span class="lightbox-close" onclick="window.location='#';">&times;</span>
   <img src="images/pic3.jpeg" alt="Image 3">
 </div>
+
 <div id="lightbox-3" class="lightbox">
   <span class="lightbox-close" onclick="window.location='#';">&times;</span>
   <img src="images/pic4.jpeg" alt="Image 4">
 </div>
+
 <div id="lightbox-4" class="lightbox">
   <span class="lightbox-close" onclick="window.location='#';">&times;</span>
   <img src="images/pic5.jpeg" alt="Image 5">
 </div>
+
 <div id="lightbox-5" class="lightbox">
   <span class="lightbox-close" onclick="window.location='#';">&times;</span>
   <img src="images/pic6.jpeg" alt="Image 6">
 </div>
+
 <div id="lightbox-6" class="lightbox">
   <span class="lightbox-close" onclick="window.location='#';">&times;</span>
   <img src="images/pic7.jpeg" alt="Image 7">
 </div>
 
-<!-- New lightboxes for img01 to img08 -->
 <div id="lightbox-7" class="lightbox">
   <span class="lightbox-close" onclick="window.location='#';">&times;</span>
   <img src="images/img01.jpg" alt="Image 01">
 </div>
+
 <div id="lightbox-8" class="lightbox">
   <span class="lightbox-close" onclick="window.location='#';">&times;</span>
   <img src="images/img02.jpg" alt="Image 02">
 </div>
+
 <div id="lightbox-9" class="lightbox">
   <span class="lightbox-close" onclick="window.location='#';">&times;</span>
   <img src="images/img03.jpg" alt="Image 03">
 </div>
-<!-- <div id="lightbox-10" class="lightbox">
-  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-  <img src="images/img04.jpg" alt="Image 04">
-</div>
-<div id="lightbox-11" class="lightbox">
-  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-  <img src="images/img05.jpg" alt="Image 05">
-</div>
-<div id="lightbox-12" class="lightbox">
-  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-  <img src="images/img06.jpg" alt="Image 06">
-</div> -->
-<div id="lightbox-13" class="lightbox">
+
+<div id="lightbox-10" class="lightbox">
   <span class="lightbox-close" onclick="window.location='#';">&times;</span>
   <img src="images/img07.jpg" alt="Image 07">
 </div>
-<div id="lightbox-14" class="lightbox">
+
+<div id="lightbox-11" class="lightbox">
   <span class="lightbox-close" onclick="window.location='#';">&times;</span>
   <img src="images/img08.jpg" alt="Image 08">
 </div>
 
+<!-- NEW lightboxes -->
+<div id="lightbox-12" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/pic020.jpeg" alt="Image 09">
+</div>
+
+<div id="lightbox-13" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/pic021.jpeg" alt="Image 10">
+</div>
+
+<div id="lightbox-14" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/pic022.jpeg" alt="Image 11">
+</div>
+
+<div id="lightbox-15" class="lightbox">
+  <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+  <img src="images/pic023.jpeg" alt="Image 12">
+</div>
+
 </body>
 </html>
+<!-- Review Section -->
+<div class="review-grid" 
+     style="
+       display: flex;              /* switch from grid to flex */
+       gap: 20px;
+       overflow-x: auto;           /* enable horizontal scroll */
+       scroll-snap-type: x mandatory;
+       padding: 0 15px;
+       -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */  
+     ">
+  
+  <div class="review-card" style="flex: 0 0 80%; scroll-snap-align: center; background: #fff; border-radius: 16px; padding: 25px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); text-align:center;">
+    <img src="images/rao.jpeg" alt="Client 1" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #007bff; margin-bottom: 15px;">
+    <h3>Rao</h3>
+    <div style="color:#f1c40f; margin-bottom:10px;">★★★★★</div>
+    <p>"From the bottom of our hearts, we want to thank you both for the care and treatment you have given to my Daddy. It means more to us than words can ever express. Seeing him feel relief and comfort after so much pain is truly a blessing for our whole family.
+Your kindness, patience, and dedication have not only helped him physically but have also given us hope and peace of mind. For us, you are not just doctors—you are healers who touched our lives with compassion and skill.
+
+We will always remain deeply grateful to you both for being there in this journey and for treating my Daddy with such sincerity and love.
+"</p>
+  </div>
+
+  <div class="review-card" style="flex: 0 0 80%; scroll-snap-align: center; background: #fff; border-radius: 16px; padding: 25px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); text-align:center;">
+    <img src="images/basil.jpg" alt="Client 2" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #007bff; margin-bottom: 15px;">
+    <h3>Basil Benny</h3>
+    <div style="color:#f1c40f; margin-bottom:10px;">★★★★★</div>
+    <p>"I had been suffering from back pain and shoulder pain for a while, and after visiting this chiropractor I finally feel relief. The treatment was very effective, and I noticed a big improvement after just a few sessions. The doctor is professional, attentive, and explains everything clearly, which really helped me feel comfortable and confident and highly recommended to all those who suffering back pain , neck pain and all.👍👍👍 With reasonable rates
+The clinic itself is very neat, clean, and well-maintained, with a calm and welcoming atmosphere that makes each visit pleasant. The staff are very friendly and helpful too. Overall, I had a great experience and would definitely recommend this clinic to anyone looking for quality chiropractic care"</p>
+  </div>
+<!-- 
+  <div class="review-card" style="flex: 0 0 80%; scroll-snap-align: center; background: #fff; border-radius: 16px; padding: 25px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); text-align:center;">
+    <img src="https://i.pravatar.cc/100?img=12" alt="Client 3" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #007bff; margin-bottom: 15px;">
+    <h3>Meera Thomas</h3>
+    <div style="color:#f1c40f; margin-bottom:10px;">★★★★☆</div>
+    <p>"Great results! I feel much more flexible and stress-free after my chiropractic sessions."</p>
+  </div> -->
+
+</div>
+
+
 <!-- <div id="lightbox-7" class="lightbox">
   <span class="lightbox-close" onclick="window.location='#';">&times;</span>
   <img src="images/pic8.jpeg" alt="Image 8">
